@@ -13,6 +13,7 @@
         <module>gateway</module>
         <module>pessoa</module>
         <module>produto</module>
+        <module>venda</module>
     </modules>
 
 </project>

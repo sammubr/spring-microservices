@@ -1,0 +1,38 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="samuel (generated)" id="1547934884903-1">
+        <createTable tableName="venda">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="vendaPK"/>
+            </column>
+            <column name="data" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pessoa_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="samuel (generated)" id="1547934884903-2">
+        <createTable tableName="venda_item">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="venda_itemPK"/>
+            </column>
+            <column name="produto_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantidade" type="DECIMAL(19, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="valor_unitario" type="DECIMAL(19, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="venda_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="samuel (generated)" id="1547934884903-3">
+        <addForeignKeyConstraint baseColumnNames="venda_id" baseTableName="venda_item" constraintName="FK_gu6r2vq7xrp0ssvy1mg3iu2ev" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="venda"/>
+    </changeSet>
+</databaseChangeLog>

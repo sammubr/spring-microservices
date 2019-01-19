@@ -7,3 +7,5 @@ zuul:
       url: http://localhost:8090
     produtos:
       url: http://localhost:8091
+    vendas:
+      url: http://localhost:8092
