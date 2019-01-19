@@ -1,15 +1,13 @@
-package br.com.sammubr;
+package br.com.sammubr.pais;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
-@EnableZuulProxy
 @SpringBootApplication
-public class Application {
+public class PaisApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(PaisApplication.class, args);
     }
 
 }

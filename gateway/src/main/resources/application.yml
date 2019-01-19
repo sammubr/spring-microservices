@@ -1,2 +1,9 @@
 server:
   port: 8080
+
+zuul:
+  routes:
+    paises:
+      url: http://localhost:8090
+    estados:
+      url: http://localhost:8091
