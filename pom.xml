@@ -11,8 +11,8 @@
 
     <modules>
         <module>gateway</module>
-        <module>pais</module>
-        <module>estado</module>
+        <module>pessoa</module>
+        <module>produto</module>
     </modules>
 
 </project>

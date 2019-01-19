@@ -3,7 +3,7 @@ server:
 
 zuul:
   routes:
-    paises:
+    pessoas:
       url: http://localhost:8090
-    estados:
+    produtos:
       url: http://localhost:8091
