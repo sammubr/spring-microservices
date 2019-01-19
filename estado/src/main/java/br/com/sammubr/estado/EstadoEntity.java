@@ -1,9 +1,12 @@
 package br.com.sammubr.estado;
 
+import br.com.sammubr.pais.PaisEntity;
+
 public class EstadoEntity {
 
     private Long id;
     private String descricao;
+    private PaisEntity pais;
 
     public Long getId() {
         return id;
@@ -21,4 +24,11 @@ public class EstadoEntity {
         this.descricao = descricao;
     }
 
+    public PaisEntity getPais() {
+        return pais;
+    }
+
+    public void setPais(PaisEntity pais) {
+        this.pais = pais;
+    }
 }
