@@ -1,13 +1,13 @@
-package br.com.sammubr.pais;
+package br.com.sammubr;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PaisApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(PaisApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }

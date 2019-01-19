@@ -1,12 +1,15 @@
-package br.com.sammubr.estado;
+package br.com.sammubr;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
+@EnableZuulProxy
 @SpringBootApplication
-public class EstadoApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(EstadoApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
+
 }
