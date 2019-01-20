@@ -4,8 +4,8 @@ server:
 zuul:
   routes:
     pessoas:
-      url: http://localhost:8090
+      url: http://127.0.0.1:8090
     produtos:
-      url: http://localhost:8091
+      url: http://127.0.0.1:8091
     vendas:
-      url: http://localhost:8092
+      url: http://127.0.0.1:8092
