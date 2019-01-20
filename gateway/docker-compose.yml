@@ -1,20 +1,86 @@
 version: '3'
 
 services:
-  produto:
-    image: produto:latest
-  venda:
-    image: venda:latest
+  
+  #---------------------------------------------------- pessoa
+
+  mysql1:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123456
+      - MYSQL_DATABASE=pessoa
+      - MYSQL_PASSWORD=user123456
+    ports:
+      - 6603:3306
+
   pessoa:
-    image: pessoa:latest
+    image: sammubr/public:pessoa
+    depends_on:
+      - mysql1
+    ports:
+      - 8090:8090
+    environment:
+      - DATABASE_HOST=mysql1
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=root123456
+      - DATABASE_NAME=pessoa
+      - DATABASE_PORT=3306
+
+  #---------------------------------------------------- produto
+
+  mysql2:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123456
+      - MYSQL_DATABASE=produto
+    ports:
+      - 6604:3306
+
+  produto:
+    image: sammubr/public:produto
+    depends_on:
+      - mysql2
+    ports:
+      - 8091:8091
+    environment:
+      - DATABASE_HOST=mysql2
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=root123456
+      - DATABASE_NAME=produto
+      - DATABASE_PORT=3306
+
+  #---------------------------------------------------- venda
+
+  mysql3:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123456
+      - MYSQL_DATABASE=venda
+    ports:
+      - 6605:3306
+
+  venda:
+    image: sammubr/public:venda
+    depends_on:
+      - mysql3
+    ports:
+      - 8092:8092
+    environment:
+      - DATABASE_HOST=mysql3
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=root123456
+      - DATABASE_NAME=venda
+      - DATABASE_PORT=3306
+
+  #---------------------------------------------------- gateway
+
   gateway:
-    build: .
-    image: br.com.sammubr/gateway:1.0-SNAPSHOT
+    image: sammubr/public:gateway
     network_mode: host
     depends_on:
       - produto
-      - pessoa
       - venda
+      - pessoa
     ports:
       - 8080:8080
     environment:
@@ -22,5 +88,5 @@ services:
       - PRODUTO_PORT=8091
       - PESSOA_HOST=127.0.0.1
       - PESSOA_PORT=8090
-      - VENDA_HOST=127.0.0.1
+      - VENDA_HOST=localhost
       - VENDA_PORT=8092

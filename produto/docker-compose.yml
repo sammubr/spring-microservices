@@ -10,7 +10,6 @@ services:
     ports:
       - 6604:3306
   produto:
-    build: .
     image: produto
     depends_on:
       - docker-mysql
