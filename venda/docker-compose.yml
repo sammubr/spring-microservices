@@ -10,7 +10,7 @@ services:
     ports:
       - 6605:3306
   venda:
-    image: venda
+    image: sammubr/public:venda
     depends_on:
       - docker-mysql
     ports:

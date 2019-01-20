@@ -10,7 +10,7 @@ services:
     ports:
       - 6603:3306
   pessoa:
-    image: pessoa
+    image: sammubr/public:pessoa
     depends_on:
       - docker-mysql
     ports:

@@ -10,7 +10,7 @@ services:
     ports:
       - 6604:3306
   produto:
-    image: produto
+    image: sammubr/public:produto
     depends_on:
       - docker-mysql
     ports:
