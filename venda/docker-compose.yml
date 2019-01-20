@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  docker-mysql:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123456
+      - MYSQL_DATABASE=venda
+      - MYSQL_PASSWORD=user123456
+    ports:
+      - 6605:3306
+  venda:
+    build: .
+    image: venda
+    depends_on:
+      - docker-mysql
+    ports:
+      - 8092:8092
+    environment:
+      - DATABASE_HOST=docker-mysql
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=root123456
+      - DATABASE_NAME=venda
+      - DATABASE_PORT=3306

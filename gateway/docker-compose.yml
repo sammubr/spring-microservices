@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  produto:
+    image: produto:latest
+  venda:
+    image: venda:latest
+  pessoa:
+    image: pessoa:latest
+  gateway:
+    build: .
+    image: br.com.sammubr/gateway:1.0-SNAPSHOT
+    network_mode: host
+    depends_on:
+      - produto
+      - pessoa
+      - venda
+    ports:
+      - 8080:8080
+    environment:
+      - PRODUTO_HOST=127.0.0.1
+      - PRODUTO_PORT=8091
+      - PESSOA_HOST=127.0.0.1
+      - PESSOA_PORT=8090
+      - VENDA_HOST=127.0.0.1
+      - VENDA_PORT=8092

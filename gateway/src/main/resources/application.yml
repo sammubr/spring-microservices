@@ -9,3 +9,16 @@ zuul:
       url: http://127.0.0.1:8091
     vendas:
       url: http://127.0.0.1:8092
+
+---
+
+spring:
+  profiles: container
+  zuul:
+    routes:
+      pessoas:
+        url: http://${PESSOA_HOST}:${PESSOA_PORT}
+      produtos:
+        url: http://${PRODUTO_HOST}:${PRODUTO_PORT}
+      vendas:
+        url: http://${VENDA_HOST}:${VENDA_PORT}
