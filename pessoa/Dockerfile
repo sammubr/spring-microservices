@@ -1,8 +1,5 @@
 FROM openjdk:8-jdk-alpine
 VOLUME /tmp
 EXPOSE 8090
-ARG DEPENDENCY=target/dependency
-COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
-COPY ${DEPENDENCY}/META-INF /app/META-INF
-COPY ${DEPENDENCY}/BOOT-INF/classes /app
-ENTRYPOINT ["java","-Dspring.profiles.active=container","-cp","app:app/lib/*","br.com.sammubr.Application"]
+ADD target/pessoa-1.0-SNAPSHOT.jar pessoa-1.0-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","-Dspring.profiles.active=container", "pessoa-1.0-SNAPSHOT.jar"]

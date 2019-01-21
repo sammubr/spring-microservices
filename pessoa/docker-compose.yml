@@ -13,6 +13,7 @@ services:
     image: sammubr/public:pessoa
     depends_on:
       - docker-mysql
+    restart: on-failure
     ports:
       - 8090:8090
     environment:

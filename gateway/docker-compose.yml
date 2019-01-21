@@ -17,6 +17,7 @@ services:
     image: sammubr/public:pessoa
     depends_on:
       - mysql1
+    restart: on-failure
     ports:
       - 8090:8090
     environment:
@@ -40,6 +41,7 @@ services:
     image: sammubr/public:produto
     depends_on:
       - mysql2
+    restart: on-failure
     ports:
       - 8091:8091
     environment:
@@ -63,6 +65,7 @@ services:
     image: sammubr/public:venda
     depends_on:
       - mysql3
+    restart: on-failure
     ports:
       - 8092:8092
     environment:
